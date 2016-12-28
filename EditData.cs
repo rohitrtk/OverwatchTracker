@@ -16,32 +16,47 @@ namespace OverwatchTracker
         private const char Loss = 'L';
         private const char Draw = 'D';
 
+        private bool _empty = false;
+        private ListBox _lb;
+
         private string _dir;
         private int _sr;
         private char _winLoss;
         private int _difference;
         private int _competitvePoints;
 
-        public EditData(string dir)
+        public EditData(string dir, ListBox lb)
         {
             InitializeComponent();
+            _lb = lb;
             _dir = dir;
-            _competitvePoints = Utility.Data[Utility.Data.Count - 1].CompetitvePoints;
+            
+            if(Utility.Data.Count == 0) _empty = true;
         }
-
+        
         private void button_Confirm_Click(object sender, EventArgs e)
         {
             _sr = int.Parse(textBox_SR.Text);
             _winLoss = char.Parse(textBox_WL.Text);
 
-            if(_winLoss == Win) _competitvePoints += (int)Utility.CP.Win;
+            if (!_empty)
+            {
+                _competitvePoints = Utility.Data[Utility.Data.Count - 1].CompetitvePoints;
+                _difference = Math.Abs(Utility.Data[Utility.Data.Count - 1].Sr - _sr);
+            }
+            else
+            {
+                _competitvePoints = 0;
+                _difference = 0;
+            }
+
+            if (_winLoss == Win) _competitvePoints += (int)Utility.CP.Win;
             else if(_winLoss == Loss) _competitvePoints += (int)Utility.CP.Loss;
-            else _competitvePoints += (int)Utility.CP.Draw;
+            else _competitvePoints += (int)Utility.CP.Draw;         
 
-            _difference = Math.Abs(Utility.Data[Utility.Data.Count - 1].Sr - _sr);
-
-            var data = _sr + "\t" + _winLoss + "\t" + _difference + "\t" + _competitvePoints;
+            var data = _sr + "\t" + _winLoss + "\t" + _difference + "\t" + _competitvePoints + "\t" + DateTime.Today;
             Utility.SaveDataString(_dir, data);
+            Utility.ReloadData(_lb, Utility.Data);
         }
     }
 }

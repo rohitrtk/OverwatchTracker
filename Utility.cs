@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Globalization;
 
 namespace OverwatchTracker
 {
     public static class Utility
     {
         public static int NumberOfIndexes {set; get;}
-        private const string _header = "SR\tResult\tDiffer\tCompetitive Points";
+        private const string _header = "SR\tResult\tDiffer\tCompetitive Points\tDate";
 
         public static List<Game> Data = new List<Game>();
 
@@ -43,7 +44,7 @@ namespace OverwatchTracker
                     continue;
                 }
                 string[] ssize = v.Split(null);
-                Data.Add(new Game(i, int.Parse(ssize[0]), char.Parse(ssize[1]), int.Parse(ssize[2]), int.Parse(ssize[3])));
+                Data.Add(new Game(i, int.Parse(ssize[0]), char.Parse(ssize[1]), int.Parse(ssize[2]), int.Parse(ssize[3]), DateTime.ParseExact(ssize[4], "yyyy:MM:dd hh:mm::ss tt", CultureInfo.InvariantCulture)));
                 i++;
             }
             NumberOfIndexes = Data.Count;
@@ -58,11 +59,7 @@ namespace OverwatchTracker
         {
             if (!File.Exists(dir)) using (StreamWriter sw = File.CreateText(dir)) sw.WriteLine(s);
 
-            TextWriter writer = new StreamWriter(dir, append:true);
-
-            writer.WriteLine("\n" + s);
-
-            writer.Close();
+            File.AppendAllText(dir, "\n" + s);
         }
 
         /// <summary>
@@ -76,6 +73,17 @@ namespace OverwatchTracker
             foreach(var v in list)
             {
                 lb.Items.Add(v.GameString());
+            }
+        }
+
+        public static void ReloadData(ListBox lb, List<Game> list)
+        {
+            foreach(var v in list)
+            {
+                if (!lb.Items.Contains(v))
+                {
+                    lb.Items.Add(v.GameString());
+                }
             }
         }
     }

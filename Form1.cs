@@ -12,8 +12,8 @@ namespace OverwatchTracker
 {
     public partial class Form_MainForm : Form
     {
-        private string _readDirectory { get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Overwatch.txt";
-        private string _saveDirectory { get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Overwatch.txt";
+        private string _readDirectory { get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\OverwatchTest.txt";
+        private string _saveDirectory { get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\OverwatchTest.txt";
 
         public Form_MainForm()
         {
@@ -28,7 +28,7 @@ namespace OverwatchTracker
 
         private void button_AddData_Click(object sender, EventArgs e)
         {
-            var myForm = new EditData(_readDirectory);
+            var myForm = new EditData(_readDirectory, listBox_Display);
             myForm.Show();
         }
     }
