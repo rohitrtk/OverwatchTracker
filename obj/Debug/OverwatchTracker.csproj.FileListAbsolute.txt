@@ -8,3 +8,13 @@ E:\Computer Programming\C#\OverwatchTracker\obj\Debug\OverwatchTracker.csproj.Ge
 E:\Computer Programming\C#\OverwatchTracker\obj\Debug\OverwatchTracker.exe
 E:\Computer Programming\C#\OverwatchTracker\obj\Debug\OverwatchTracker.pdb
 E:\Computer Programming\C#\OverwatchTracker\obj\Debug\OverwatchTracker.EditData.resources
+D:\Visual Studio Projects\C#\OverwatchTracker\bin\Debug\OverwatchTracker.exe.config
+D:\Visual Studio Projects\C#\OverwatchTracker\obj\Debug\OverwatchTracker.exe
+D:\Visual Studio Projects\C#\OverwatchTracker\obj\Debug\OverwatchTracker.pdb
+D:\Visual Studio Projects\C#\OverwatchTracker\bin\Debug\OverwatchTracker.exe
+D:\Visual Studio Projects\C#\OverwatchTracker\bin\Debug\OverwatchTracker.pdb
+D:\Visual Studio Projects\C#\OverwatchTracker\obj\Debug\OverwatchTracker.csprojResolveAssemblyReference.cache
+D:\Visual Studio Projects\C#\OverwatchTracker\obj\Debug\OverwatchTracker.EditData.resources
+D:\Visual Studio Projects\C#\OverwatchTracker\obj\Debug\OverwatchTracker.Form_MainForm.resources
+D:\Visual Studio Projects\C#\OverwatchTracker\obj\Debug\OverwatchTracker.Properties.Resources.resources
+D:\Visual Studio Projects\C#\OverwatchTracker\obj\Debug\OverwatchTracker.csproj.GenerateResource.Cache

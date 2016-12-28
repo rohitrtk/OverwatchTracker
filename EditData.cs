@@ -54,9 +54,9 @@ namespace OverwatchTracker
             else if(_winLoss == Loss) _competitvePoints += (int)Utility.CP.Loss;
             else _competitvePoints += (int)Utility.CP.Draw;         
 
-            var data = _sr + "\t" + _winLoss + "\t" + _difference + "\t" + _competitvePoints + "\t" + DateTime.Today;
+            var data = _sr + "\t" + _winLoss + "\t" + _difference + "\t" + _competitvePoints + "\t" + DateTime.Now;
             Utility.SaveDataString(_dir, data);
-            Utility.ReloadData(_lb, Utility.Data);
+            Utility.ReloadData(_dir, _lb, Utility.Data);
         }
     }
 }

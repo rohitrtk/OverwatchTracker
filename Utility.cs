@@ -11,11 +11,13 @@ namespace OverwatchTracker
 {
     public static class Utility
     {
-        public static int NumberOfIndexes {set; get;}
-        private const string _header = "SR\tResult\tDiffer\tCompetitive Points\tDate";
+        // The string to be placed into text files and the form litbox
+        private const string _header = "SR\tResult\tDiffer\tCP\tDate";
 
+        // List of games from txt file
         public static List<Game> Data = new List<Game>();
 
+        // Competitive points to be added depending on Win, Loss or Draw
         public enum CP
         {
             Win = 10,
@@ -30,24 +32,36 @@ namespace OverwatchTracker
         /// <returns></returns>
         public static List<Game> ReadAllData(string dir)
         {
+            // If file doesn't exist, create it and add the header to it
             if (!File.Exists(dir)) using (StreamWriter sw = File.CreateText(dir)) sw.WriteLine(_header);
 
+            // Temp variable to read all the data from the file
             var reference = File.ReadAllLines(dir);
 
-            int i = 0;
+            // Counter variable
+            var i = 0;
+
+            // Foreach variable in temp variable...
             foreach(var v in reference)
             {
+                // If counter is 0, restart the loop because that index is the header string
                 if(i == 0)
                 {
                     i++;
 
                     continue;
                 }
+                // Split on whitespace and seperate the strings into arrays
                 string[] ssize = v.Split(null);
-                Data.Add(new Game(i, int.Parse(ssize[0]), char.Parse(ssize[1]), int.Parse(ssize[2]), int.Parse(ssize[3]), DateTime.ParseExact(ssize[4], "yyyy:MM:dd hh:mm::ss tt", CultureInfo.InvariantCulture)));
+
+                // Add a new game to Data list with param from ssize
+                Data.Add(new Game(i, int.Parse(ssize[0]), char.Parse(ssize[1]), int.Parse(ssize[2]), int.Parse(ssize[3]), DateTime.Parse(ssize[4])));
+
+                // Add 1 to counter
                 i++;
             }
-            NumberOfIndexes = Data.Count;
+
+            // Return Data list
             return Data;
         }
 
@@ -57,8 +71,10 @@ namespace OverwatchTracker
         /// <param name="s"></param>
         public static void SaveDataString(string dir, string s)
         {
+            // If file doesn't exist, create it
             if (!File.Exists(dir)) using (StreamWriter sw = File.CreateText(dir)) sw.WriteLine(s);
 
+            // Append string to file
             File.AppendAllText(dir, "\n" + s);
         }
 
@@ -69,22 +85,35 @@ namespace OverwatchTracker
         /// <param name="list"></param>
         public static void InsertData(ListBox lb, List<Game> list)
         {
+            // Add the header string to the items in listbox
             lb.Items.Add(_header);
-            foreach(var v in list)
-            {
-                lb.Items.Add(v.GameString());
-            }
+
+            // Foreach variable in list, add that item to the listbox
+            foreach(var v in list) lb.Items.Add(v.GameString());
         }
 
-        public static void ReloadData(ListBox lb, List<Game> list)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <param name="lb"></param>
+        /// <param name="list"></param>
+        public static void ReloadData(string dir, ListBox lb, List<Game> list)
         {
-            foreach(var v in list)
-            {
-                if (!lb.Items.Contains(v))
-                {
-                    lb.Items.Add(v.GameString());
-                }
-            }
+            // Clear all items from the list box
+            lb.Items.Clear();
+
+            // Clear all items from the list
+            list.Clear();
+
+            // Add items to the list
+            list = ReadAllData(dir);
+   
+            // Add the header string to the listbox
+            lb.Items.Add(_header);
+
+            // Foreach variable in Data, add item to the listbox
+            foreach(var v in Data) lb.Items.Add(v.GameString());
         }
     }
 }
