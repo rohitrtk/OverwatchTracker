@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Globalization;
 
 namespace OverwatchTracker
 {
+    /// <summary>
+    /// This class is a Utility class, used for referencing constants and useful methods
+    /// </summary>
     public static class Utility
     {
         // The string to be placed into text files and the form litbox
         private const string _header = "SR\tResult\tDiffer\tCP\tDate";
+
+        // The default read directory to read data from
+        public static string DefaultReadDirectory { get; } = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Overwatch.txt";
+
+        // The default save directory to save data to
+        public static string DefaultSaveDirectory { get; } = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Overwatch.txt";
 
         // List of games from txt file
         public static List<Game> Data = new List<Game>();

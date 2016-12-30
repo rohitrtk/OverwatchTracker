@@ -10,7 +10,10 @@ using System.Windows.Forms;
 
 namespace OverwatchTracker
 {
-    public partial class EditData : Form
+    /// <summary>
+    /// Handles the Form_EditData's functionality
+    /// </summary>
+    public partial class Form_EditData : Form
     {
         private const char Win = 'W';
         private const char Loss = 'L';
@@ -25,27 +28,42 @@ namespace OverwatchTracker
         private int _difference;
         private int _competitvePoints;
 
-        public EditData(string dir, ListBox lb)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <param name="lb"></param>
+        public Form_EditData(string dir, ListBox lb)
         {
             InitializeComponent();
             _lb = lb;
             _dir = dir;
             
+            // If the number of indicies read from the data file is 0, the file is a new file
             if(Utility.Data.Count == 0) _empty = true;
         }
         
+        /// <summary>
+        /// This method is called when the Confirm button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Confirm_Click(object sender, EventArgs e)
         {
             _sr = int.Parse(textBox_SR.Text);
-            _winLoss = char.Parse(textBox_WL.Text);
+            _winLoss = char.Parse(textBox_WL.Text.ToUpper());
 
+            // If the file is not a new file...
             if (!_empty)
             {
+                // Read from game list
                 _competitvePoints = Utility.Data[Utility.Data.Count - 1].CompetitvePoints;
                 _difference = Math.Abs(Utility.Data[Utility.Data.Count - 1].Sr - _sr);
             }
+            // Else...
             else
             {
+                // Default 0
                 _competitvePoints = 0;
                 _difference = 0;
             }

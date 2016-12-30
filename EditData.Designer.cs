@@ -1,6 +1,6 @@
 ﻿namespace OverwatchTracker
 {
-    partial class EditData
+    partial class Form_EditData
     {
         /// <summary>
         /// Required designer variable.
@@ -77,7 +77,7 @@
             this.label_WL.TabIndex = 3;
             this.label_WL.Text = "Win/Loss";
             // 
-            // EditData
+            // Form_EditData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -88,7 +88,7 @@
             this.Controls.Add(this.textBox_SR);
             this.Controls.Add(this.label_SR);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "EditData";
+            this.Name = "Form_EditData";
             this.Text = "EditData";
             this.ResumeLayout(false);
             this.PerformLayout();

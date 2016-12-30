@@ -41,7 +41,8 @@
             this.textBox_SaveDir.Location = new System.Drawing.Point(95, 38);
             this.textBox_SaveDir.Name = "textBox_SaveDir";
             this.textBox_SaveDir.Size = new System.Drawing.Size(170, 20);
-            this.textBox_SaveDir.TabIndex = 0;
+            this.textBox_SaveDir.TabIndex = 2;
+            this.textBox_SaveDir.TextChanged += new System.EventHandler(this.textBox_SaveDir_TextChanged);
             // 
             // label_SaveDir
             // 
@@ -63,17 +64,18 @@
             // 
             // textBox_ReadDir
             // 
-            this.textBox_ReadDir.Location = new System.Drawing.Point(95, 12);
+            this.textBox_ReadDir.Location = new System.Drawing.Point(95, 15);
             this.textBox_ReadDir.Name = "textBox_ReadDir";
             this.textBox_ReadDir.Size = new System.Drawing.Size(170, 20);
-            this.textBox_ReadDir.TabIndex = 3;
+            this.textBox_ReadDir.TabIndex = 1;
+            this.textBox_ReadDir.TextChanged += new System.EventHandler(this.textBox_ReadDir_TextChanged);
             // 
             // button_AddData
             // 
             this.button_AddData.Location = new System.Drawing.Point(95, 64);
             this.button_AddData.Name = "button_AddData";
             this.button_AddData.Size = new System.Drawing.Size(75, 23);
-            this.button_AddData.TabIndex = 5;
+            this.button_AddData.TabIndex = 3;
             this.button_AddData.Text = "Add Data";
             this.button_AddData.UseVisualStyleBackColor = true;
             this.button_AddData.Click += new System.EventHandler(this.button_AddData_Click);
@@ -84,7 +86,7 @@
             this.listBox_Display.Location = new System.Drawing.Point(271, 12);
             this.listBox_Display.Name = "listBox_Display";
             this.listBox_Display.Size = new System.Drawing.Size(335, 264);
-            this.listBox_Display.TabIndex = 7;
+            this.listBox_Display.TabIndex = 0;
             // 
             // Form_MainForm
             // 
