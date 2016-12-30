@@ -59,8 +59,11 @@ namespace OverwatchTracker
                 // Split on whitespace and seperate the strings into arrays
                 string[] ssize = v.Split(null);
 
+                DateTime dt;
+                DateTime.TryParse(ssize[4], out dt);
+
                 // Add a new game to Data list with param from ssize
-                Data.Add(new Game(i, int.Parse(ssize[0]), char.Parse(ssize[1]), int.Parse(ssize[2]), int.Parse(ssize[3]), DateTime.Parse(ssize[4])));
+                Data.Add(new Game(i, int.Parse(ssize[0]), char.Parse(ssize[1]), int.Parse(ssize[2]), int.Parse(ssize[3]), dt));
 
                 // Add 1 to counter
                 i++;
@@ -91,7 +94,7 @@ namespace OverwatchTracker
         public static void InsertData(ListBox lb, List<Game> list)
         {
             // Add the header string to the items in listbox
-            lb.Items.Add(_header);
+            if(lb != null) lb.Items.Add(_header);
 
             // Foreach variable in list, add that item to the listbox
             foreach(var v in list) lb.Items.Add(v.GameString());

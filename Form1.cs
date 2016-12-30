@@ -16,7 +16,8 @@ namespace OverwatchTracker
         /// </summary>
         public Form_MainForm()
         {
-
+            InitializeComponent();
+            
             if(Properties.Settings.Default.FirstLaunch)
             {
                 _readDirectory = Utility.DefaultReadDirectory;
@@ -56,7 +57,7 @@ namespace OverwatchTracker
             // Show the form
             myForm.Show();
         }
-
+        
         private void textBox_ReadDir_TextChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.ReadDirectory = textBox_ReadDir.Text;

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OverwatchTracker
@@ -38,9 +32,6 @@ namespace OverwatchTracker
             InitializeComponent();
             _lb = lb;
             _dir = dir;
-            
-            // If the number of indicies read from the data file is 0, the file is a new file
-            if(Utility.Data.Count == 0) _empty = true;
         }
         
         /// <summary>
@@ -50,6 +41,9 @@ namespace OverwatchTracker
         /// <param name="e"></param>
         private void button_Confirm_Click(object sender, EventArgs e)
         {
+            // If the list of games is empty... Set _empty to true or false
+            _empty = !Utility.Data.Any();
+
             _sr = int.Parse(textBox_SR.Text);
             _winLoss = char.Parse(textBox_WL.Text.ToUpper());
 
@@ -72,7 +66,7 @@ namespace OverwatchTracker
             else if(_winLoss == Loss) _competitvePoints += (int)Utility.CP.Loss;
             else _competitvePoints += (int)Utility.CP.Draw;         
 
-            var data = _sr + "\t" + _winLoss + "\t" + _difference + "\t" + _competitvePoints + "\t" + DateTime.Now;
+            var data = _sr + "\t" + _winLoss + "\t" + _difference + "\t" + _competitvePoints + "\t" + DateTime.Today.ToShortDateString();
             Utility.SaveDataString(_dir, data);
             Utility.ReloadData(_dir, _lb, Utility.Data);
         }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OverwatchTracker
 {
@@ -11,12 +7,12 @@ namespace OverwatchTracker
     /// </summary>
     public class Game
     {
-        public int Index;
-        public int Sr;
-        public char WinLoss;
-        public int Difference;
-        public int CompetitvePoints;
-        public DateTime CurrentDateTime;
+        public int Index { get; }
+        public int Sr { get; }
+        public char WinLoss { get; }
+        public int Difference { get; }
+        public int CompetitvePoints { get; }
+        public DateTime CurrentDateTime { get; }
 
         /// <summary>
         /// Constructor
@@ -43,7 +39,7 @@ namespace OverwatchTracker
         /// <returns></returns>
         public string GameString()
         {
-            return Sr + "\t" + WinLoss + "\t" + Difference + "\t" + CompetitvePoints + "\t" + CurrentDateTime;
+            return Sr + "\t" + WinLoss + "\t" + Difference + "\t" + CompetitvePoints + "\t" + CurrentDateTime.ToShortDateString();
         }
     }
 }

@@ -28,21 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox_SaveDir = new System.Windows.Forms.TextBox();
             this.label_SaveDir = new System.Windows.Forms.Label();
             this.label_ReadDir = new System.Windows.Forms.Label();
-            this.textBox_ReadDir = new System.Windows.Forms.TextBox();
             this.button_AddData = new System.Windows.Forms.Button();
             this.listBox_Display = new System.Windows.Forms.ListBox();
+            this.textBox_ReadDir = new System.Windows.Forms.TextBox();
+            this.textBox_SaveDir = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // textBox_SaveDir
-            // 
-            this.textBox_SaveDir.Location = new System.Drawing.Point(95, 38);
-            this.textBox_SaveDir.Name = "textBox_SaveDir";
-            this.textBox_SaveDir.Size = new System.Drawing.Size(170, 20);
-            this.textBox_SaveDir.TabIndex = 2;
-            this.textBox_SaveDir.TextChanged += new System.EventHandler(this.textBox_SaveDir_TextChanged);
             // 
             // label_SaveDir
             // 
@@ -62,14 +54,6 @@
             this.label_ReadDir.TabIndex = 4;
             this.label_ReadDir.Text = "Read Directory";
             // 
-            // textBox_ReadDir
-            // 
-            this.textBox_ReadDir.Location = new System.Drawing.Point(95, 15);
-            this.textBox_ReadDir.Name = "textBox_ReadDir";
-            this.textBox_ReadDir.Size = new System.Drawing.Size(170, 20);
-            this.textBox_ReadDir.TabIndex = 1;
-            this.textBox_ReadDir.TextChanged += new System.EventHandler(this.textBox_ReadDir_TextChanged);
-            // 
             // button_AddData
             // 
             this.button_AddData.Location = new System.Drawing.Point(95, 64);
@@ -88,17 +72,31 @@
             this.listBox_Display.Size = new System.Drawing.Size(335, 264);
             this.listBox_Display.TabIndex = 0;
             // 
+            // textBox_ReadDir
+            // 
+            this.textBox_ReadDir.Location = new System.Drawing.Point(96, 12);
+            this.textBox_ReadDir.Name = "textBox_ReadDir";
+            this.textBox_ReadDir.Size = new System.Drawing.Size(170, 20);
+            this.textBox_ReadDir.TabIndex = 5;
+            // 
+            // textBox_SaveDir
+            // 
+            this.textBox_SaveDir.Location = new System.Drawing.Point(95, 38);
+            this.textBox_SaveDir.Name = "textBox_SaveDir";
+            this.textBox_SaveDir.Size = new System.Drawing.Size(170, 20);
+            this.textBox_SaveDir.TabIndex = 6;
+            // 
             // Form_MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 291);
+            this.Controls.Add(this.textBox_SaveDir);
+            this.Controls.Add(this.textBox_ReadDir);
             this.Controls.Add(this.listBox_Display);
             this.Controls.Add(this.button_AddData);
             this.Controls.Add(this.label_ReadDir);
-            this.Controls.Add(this.textBox_ReadDir);
             this.Controls.Add(this.label_SaveDir);
-            this.Controls.Add(this.textBox_SaveDir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form_MainForm";
             this.Text = "Overwatch Skill Rating Tracker";
@@ -108,13 +106,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox_SaveDir;
         private System.Windows.Forms.Label label_SaveDir;
         private System.Windows.Forms.Label label_ReadDir;
-        private System.Windows.Forms.TextBox textBox_ReadDir;
         private System.Windows.Forms.Button button_AddData;
         private System.Windows.Forms.ListBox listBox_Display;
+        private System.Windows.Forms.TextBox textBox_ReadDir;
+        private System.Windows.Forms.TextBox textBox_SaveDir;
     }
 }
 
