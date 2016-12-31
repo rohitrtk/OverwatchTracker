@@ -77,14 +77,14 @@
             this.textBox_ReadDir.Location = new System.Drawing.Point(96, 12);
             this.textBox_ReadDir.Name = "textBox_ReadDir";
             this.textBox_ReadDir.Size = new System.Drawing.Size(170, 20);
-            this.textBox_ReadDir.TabIndex = 5;
+            this.textBox_ReadDir.TabIndex = 1;
             // 
             // textBox_SaveDir
             // 
             this.textBox_SaveDir.Location = new System.Drawing.Point(95, 38);
             this.textBox_SaveDir.Name = "textBox_SaveDir";
             this.textBox_SaveDir.Size = new System.Drawing.Size(170, 20);
-            this.textBox_SaveDir.TabIndex = 6;
+            this.textBox_SaveDir.TabIndex = 2;
             // 
             // Form_MainForm
             // 
