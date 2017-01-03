@@ -38,7 +38,7 @@ namespace OverwatchTracker
         public static List<Game> ReadAllData(string dir)
         {
             // If file doesn't exist, create it and add the header to it
-            if (!File.Exists(dir)) using (StreamWriter sw = File.CreateText(dir)) sw.WriteLine(_header);
+            if (!File.Exists(dir)) using (StreamWriter sw = File.CreateText(dir)) sw.Write(_header);
 
             // Temp variable to read all the data from the file
             var reference = File.ReadAllLines(dir);
@@ -58,9 +58,12 @@ namespace OverwatchTracker
                 }
                 // Split on whitespace and seperate the strings into arrays
                 string[] ssize = v.Split(null);
-
+                
                 DateTime dt;
-                DateTime.TryParse(ssize[4], out dt);
+                if(DateTime.TryParse(ssize[4], out dt))
+                {
+                    Console.WriteLine("asd"); 
+                }
 
                 // Add a new game to Data list with param from ssize
                 Data.Add(new Game(i, int.Parse(ssize[0]), char.Parse(ssize[1]), int.Parse(ssize[2]), int.Parse(ssize[3]), dt));

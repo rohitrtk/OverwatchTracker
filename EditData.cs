@@ -62,13 +62,41 @@ namespace OverwatchTracker
                 _difference = 0;
             }
 
-            if (_winLoss == Win) _competitvePoints += (int)Utility.CP.Win;
-            else if(_winLoss == Loss) _competitvePoints += (int)Utility.CP.Loss;
-            else _competitvePoints += (int)Utility.CP.Draw;         
-
+            // This basically lets the user input their "first" game using the tracker
+            // as when they start using the tracker, their competitive points might be higher
+            // than 0
+            if(string.IsNullOrWhiteSpace(textBox_CompPoints.Text))
+            {
+                if (_winLoss == Win) _competitvePoints += (int)Utility.CP.Win;
+                else if (_winLoss == Loss) _competitvePoints += (int)Utility.CP.Loss;
+                else _competitvePoints += (int)Utility.CP.Draw;
+            }
+            else
+            {
+                _competitvePoints = int.Parse(textBox_CompPoints.Text);
+            }
+                   
+            // Data to be displayed on .txt file and in application
             var data = _sr + "\t" + _winLoss + "\t" + _difference + "\t" + _competitvePoints + "\t" + DateTime.Today.ToShortDateString();
+
+            // Save the data
             Utility.SaveDataString(_dir, data);
+
+            // Reload the data so it can be added into the application
             Utility.ReloadData(_dir, _lb, Utility.Data);
+
+            // Clears all textboxes on this form
+            ClearTextBoxes();
+        }
+
+        /// <summary>
+        /// This method is called when textboxes in the EditData form need to be cleared
+        /// </summary>
+        private void ClearTextBoxes()
+        {
+            textBox_CompPoints.Clear();
+            textBox_SR.Clear();
+            textBox_WL.Clear();
         }
     }
 }

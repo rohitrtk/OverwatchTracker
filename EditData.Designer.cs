@@ -33,6 +33,8 @@
             this.button_Confirm = new System.Windows.Forms.Button();
             this.textBox_WL = new System.Windows.Forms.TextBox();
             this.label_WL = new System.Windows.Forms.Label();
+            this.textBox_CompPoints = new System.Windows.Forms.TextBox();
+            this.label_CompPoints = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_SR
@@ -55,7 +57,7 @@
             // 
             this.button_Confirm.Location = new System.Drawing.Point(119, 7);
             this.button_Confirm.Name = "button_Confirm";
-            this.button_Confirm.Size = new System.Drawing.Size(116, 64);
+            this.button_Confirm.Size = new System.Drawing.Size(116, 113);
             this.button_Confirm.TabIndex = 2;
             this.button_Confirm.Text = "Confirm";
             this.button_Confirm.UseVisualStyleBackColor = true;
@@ -77,11 +79,29 @@
             this.label_WL.TabIndex = 3;
             this.label_WL.Text = "Win/Loss";
             // 
+            // textBox_CompPoints
+            // 
+            this.textBox_CompPoints.Location = new System.Drawing.Point(15, 100);
+            this.textBox_CompPoints.Name = "textBox_CompPoints";
+            this.textBox_CompPoints.Size = new System.Drawing.Size(57, 20);
+            this.textBox_CompPoints.TabIndex = 6;
+            // 
+            // label_CompPoints
+            // 
+            this.label_CompPoints.AutoSize = true;
+            this.label_CompPoints.Location = new System.Drawing.Point(12, 84);
+            this.label_CompPoints.Name = "label_CompPoints";
+            this.label_CompPoints.Size = new System.Drawing.Size(66, 13);
+            this.label_CompPoints.TabIndex = 5;
+            this.label_CompPoints.Text = "Comp Points";
+            // 
             // Form_EditData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(247, 83);
+            this.ClientSize = new System.Drawing.Size(247, 125);
+            this.Controls.Add(this.textBox_CompPoints);
+            this.Controls.Add(this.label_CompPoints);
             this.Controls.Add(this.textBox_WL);
             this.Controls.Add(this.label_WL);
             this.Controls.Add(this.button_Confirm);
@@ -102,5 +122,7 @@
         private System.Windows.Forms.Button button_Confirm;
         private System.Windows.Forms.TextBox textBox_WL;
         private System.Windows.Forms.Label label_WL;
+        private System.Windows.Forms.TextBox textBox_CompPoints;
+        private System.Windows.Forms.Label label_CompPoints;
     }
 }

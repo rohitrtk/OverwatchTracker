@@ -17,8 +17,11 @@ namespace OverwatchTracker
         public Form_MainForm()
         {
             InitializeComponent();
-            
-            if(Properties.Settings.Default.FirstLaunch)
+
+            // >.> <.<
+            //  ~   ~
+            Properties.Settings.Default.FirstLaunch = false;
+            if (Properties.Settings.Default.FirstLaunch)
             {
                 _readDirectory = Utility.DefaultReadDirectory;
                 _saveDirectory = Utility.DefaultSaveDirectory;
@@ -41,7 +44,7 @@ namespace OverwatchTracker
             // Insert that data into a list box
             Utility.InsertData(listBox_Display, myList);
 
-            Properties.Settings.Default.Save();
+            //Properties.Settings.Default.Save();
         }
 
         /// <summary>
@@ -57,17 +60,18 @@ namespace OverwatchTracker
             // Show the form
             myForm.Show();
         }
-        
+        /*
         private void textBox_ReadDir_TextChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.ReadDirectory = textBox_ReadDir.Text;
             Properties.Settings.Default.Save();
         }
-
+         
         private void textBox_SaveDir_TextChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.SaveDirectory = textBox_SaveDir.Text;
             Properties.Settings.Default.Save();
-        }
+        } 
+        */
     }
 }
