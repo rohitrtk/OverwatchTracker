@@ -72,6 +72,7 @@
             this.listBox_Display.Name = "listBox_Display";
             this.listBox_Display.Size = new System.Drawing.Size(335, 264);
             this.listBox_Display.TabIndex = 0;
+            this.listBox_Display.DoubleClick += new System.EventHandler(listBox_Display_DoubleClick);
             // 
             // textBox_ReadDir
             // 

@@ -133,5 +133,10 @@ namespace OverwatchTracker
             // Foreach variable in Data, add item to the listbox
             foreach(var v in Data) lb.Items.Add(v.GameString());
         }
+
+        public static void DeleteItem(string dir, string item)
+        {
+
+        }
     }
 }

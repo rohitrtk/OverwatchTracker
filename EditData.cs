@@ -45,7 +45,9 @@ namespace OverwatchTracker
             _empty = !Utility.Data.Any();
 
             _sr = int.Parse(textBox_SR.Text);
-            _winLoss = char.Parse(textBox_WL.Text.ToUpper());
+
+            if (!string.IsNullOrEmpty(textBox_WL.Text)) _winLoss = char.Parse(textBox_WL.Text.ToUpper());
+            else _winLoss = 'e';
 
             // If the file is not a new file...
             if (!_empty)
@@ -67,6 +69,13 @@ namespace OverwatchTracker
             // than 0
             if(string.IsNullOrWhiteSpace(textBox_CompPoints.Text))
             {
+                if(string.IsNullOrWhiteSpace(textBox_WL.Text))
+                {
+                    if (Utility.Data[Utility.Data.Count - 1].Sr - _sr < 0) _winLoss = Win;
+                    else if (Utility.Data[Utility.Data.Count - 1].Sr - _sr > 0) _winLoss = Loss;
+                    else _winLoss = Draw;
+                }
+                
                 if (_winLoss == Win) _competitvePoints += (int)Utility.CP.Win;
                 else if (_winLoss == Loss) _competitvePoints += (int)Utility.CP.Loss;
                 else _competitvePoints += (int)Utility.CP.Draw;

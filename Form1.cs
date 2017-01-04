@@ -62,18 +62,26 @@ namespace OverwatchTracker
             // Show the form
             myForm.Show();
         }
-        /*
-        private void textBox_ReadDir_TextChanged(object sender, EventArgs e)
+
+        private void listBox_Display_DoubleClick(object sender, EventArgs e)
         {
-            Properties.Settings.Default.ReadDirectory = textBox_ReadDir.Text;
-            Properties.Settings.Default.Save();
+            var selected = listBox_Display.SelectedItem;
+            if (selected == null) return;
+
+            
         }
-         
-        private void textBox_SaveDir_TextChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.SaveDirectory = textBox_SaveDir.Text;
-            Properties.Settings.Default.Save();
-        } 
-        */
+        /*
+private void textBox_ReadDir_TextChanged(object sender, EventArgs e)
+{
+   Properties.Settings.Default.ReadDirectory = textBox_ReadDir.Text;
+   Properties.Settings.Default.Save();
+}
+
+private void textBox_SaveDir_TextChanged(object sender, EventArgs e)
+{
+   Properties.Settings.Default.SaveDirectory = textBox_SaveDir.Text;
+   Properties.Settings.Default.Save();
+} 
+*/
     }
 }
