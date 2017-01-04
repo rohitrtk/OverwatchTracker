@@ -20,11 +20,11 @@ namespace OverwatchTracker
 
             // >.> <.<
             //  ~   ~
-            Properties.Settings.Default.FirstLaunch = false;
+            //Properties.Settings.Default.FirstLaunch = false;
+            /*
             if (Properties.Settings.Default.FirstLaunch)
             {
-                _readDirectory = Utility.DefaultReadDirectory;
-                _saveDirectory = Utility.DefaultSaveDirectory;
+                
                 Properties.Settings.Default.FirstLaunch = false;
                 Properties.Settings.Default.ReadDirectory = Utility.DefaultReadDirectory.ToString();
                 Properties.Settings.Default.SaveDirectory = Utility.DefaultSaveDirectory.ToString();
@@ -34,7 +34,9 @@ namespace OverwatchTracker
                 _readDirectory = Properties.Settings.Default.ReadDirectory;
                 _saveDirectory = Properties.Settings.Default.SaveDirectory;
             }
-
+            */
+            _readDirectory = Utility.DefaultReadDirectory;
+            _saveDirectory = Utility.DefaultSaveDirectory;
             textBox_SaveDir.Text = _saveDirectory;
             textBox_ReadDir.Text = _readDirectory;
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_EditData));
             this.label_SR = new System.Windows.Forms.Label();
             this.textBox_SR = new System.Windows.Forms.TextBox();
             this.button_Confirm = new System.Windows.Forms.Button();
@@ -108,6 +109,7 @@
             this.Controls.Add(this.textBox_SR);
             this.Controls.Add(this.label_SR);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_EditData";
             this.Text = "EditData";
             this.ResumeLayout(false);

@@ -38,8 +38,14 @@ namespace OverwatchTracker
         public static List<Game> ReadAllData(string dir)
         {
             // If file doesn't exist, create it and add the header to it
-            if (!File.Exists(dir)) using (StreamWriter sw = File.CreateText(dir)) sw.Write(_header);
-
+            if (!File.Exists(dir)) 
+            {
+                using (StreamWriter sw = File.CreateText(dir))
+                {
+                    sw.Write(_header);
+                    sw.Dispose();
+                }
+            }
             // Temp variable to read all the data from the file
             var reference = File.ReadAllLines(dir);
 
@@ -60,9 +66,10 @@ namespace OverwatchTracker
                 string[] ssize = v.Split(null);
                 
                 DateTime dt;
-                if(DateTime.TryParse(ssize[4], out dt))
+                if(!DateTime.TryParse(ssize[4], out dt))
                 {
-                    Console.WriteLine("asd"); 
+                    MessageBox.Show("An error has occured trying\nto parse " +
+                        "DateTime from " + ssize[4]);
                 }
 
                 // Add a new game to Data list with param from ssize

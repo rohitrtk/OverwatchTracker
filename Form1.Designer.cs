@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_MainForm));
             this.label_SaveDir = new System.Windows.Forms.Label();
             this.label_ReadDir = new System.Windows.Forms.Label();
             this.button_AddData = new System.Windows.Forms.Button();
@@ -98,6 +99,7 @@
             this.Controls.Add(this.label_ReadDir);
             this.Controls.Add(this.label_SaveDir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_MainForm";
             this.Text = "Overwatch Skill Rating Tracker";
             this.ResumeLayout(false);
